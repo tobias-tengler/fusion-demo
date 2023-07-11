@@ -2,7 +2,7 @@ using OpenTelemetry.Metrics;
 using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
 
-var config = new Configuration();
+var version = "1.2.0";
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors();
@@ -12,19 +12,18 @@ builder.Services.AddWebSocketClient();
 
 builder.Services
     .AddFusionGatewayServer()
-    .ConfigureFromCloud(
-        b =>
-        {
-            b.ApiId = config.ApiId;
-            b.ApiKey = config.ApiKey;
-            b.Stage = config.Stage;
-        })
+    .ConfigureFromCloud(b =>
+    {
+        b.ApiId = "QXBpCmdlNjAxYjU3YmQ2NWM0MzE5YjBjMTdkMzMwMmMwYmQwNg==";
+        b.ApiKey = "7HJmkkfzUDGJdBEJw9gPaxKBNQQyuKJA4BTHXAai3KNBd73yxPLjOULwKE1CTfYh";
+        b.Stage = "dev";
+    })
     .CoreBuilder
     .AddInstrumentation(o => o.RenameRootActivity = true);
 
 builder.Services
     .AddOpenTelemetry()
-    .ConfigureResource(b => b.AddService("Shop-Gateway", "Demo", config.Version))
+    .ConfigureResource(b => b.AddService("Shop-Gateway", "Demo", version))
     .WithTracing(
         b =>
         {
