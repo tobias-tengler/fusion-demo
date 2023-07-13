@@ -11,7 +11,12 @@ function App() {
   const data = useLazyLoadQuery<AppQuery>(
     graphql`
       query AppQuery {
-        field
+        users(first: 3) {
+          nodes {
+            name
+            username
+          }
+        }
       }
     `,
     {}

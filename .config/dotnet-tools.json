@@ -4,15 +4,11 @@
   "tools": {
     "hotchocolate.fusion.commandline": {
       "version": "13.4.0-preview.7",
-      "commands": [
-        "fusion"
-      ]
+      "commands": ["fusion"]
     },
     "barista": {
       "version": "1.3.0",
-      "commands": [
-        "Barista"
-      ]
+      "commands": ["Barista"]
     }
   }
 }

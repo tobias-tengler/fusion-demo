@@ -1,3 +1,3 @@
 {
-  "0654c4058704cb76fea6e0005e9b1413": "query AppQuery {\n  field\n}\n"
+  "11d5d76476978bd747adf1270de4cfa7": "query AppQuery {\n  users(first: 3) {\n    nodes {\n      name\n      username\n      id\n    }\n  }\n}\n"
 }
