@@ -1,3 +1,4 @@
 {
-  "11d5d76476978bd747adf1270de4cfa7": "query AppQuery {\n  users(first: 3) {\n    nodes {\n      name\n      username\n      id\n    }\n  }\n}\n"
+  "11d5d76476978bd747adf1270de4cfa7": "query AppQuery {\n  users(first: 3) {\n    nodes {\n      name\n      username\n      id\n    }\n  }\n}\n",
+  "7b3f06b09e9842a4de92015e34b82830": "query AppQuery {\n  users(first: 3) {\n    nodes {\n      id\n      name\n      username\n    }\n  }\n}\n"
 }

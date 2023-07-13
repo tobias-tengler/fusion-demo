@@ -1,6 +1,6 @@
 /**
- * @generated SignedSource<<36d2aeefa542cd49c94bda61bace39a6>>
- * @relayHash 11d5d76476978bd747adf1270de4cfa7
+ * @generated SignedSource<<6fd7a34c6e062f1bbcb9df0c9cbf1a26>>
+ * @relayHash 7b3f06b09e9842a4de92015e34b82830
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -9,13 +9,14 @@
 /* eslint-disable */
 // @ts-nocheck
 
-// @relayRequestID 11d5d76476978bd747adf1270de4cfa7
+// @relayRequestID 7b3f06b09e9842a4de92015e34b82830
 
 import { ConcreteRequest, Query } from 'relay-runtime';
 export type AppQuery$variables = {};
 export type AppQuery$data = {
   readonly users: {
     readonly nodes: ReadonlyArray<{
+      readonly id: string;
       readonly name: string;
       readonly username: string;
     }> | null;
@@ -29,57 +30,62 @@ export type AppQuery = {
 const node: ConcreteRequest = (function(){
 var v0 = [
   {
-    "kind": "Literal",
-    "name": "first",
-    "value": 3
+    "alias": null,
+    "args": [
+      {
+        "kind": "Literal",
+        "name": "first",
+        "value": 3
+      }
+    ],
+    "concreteType": "UsersConnection",
+    "kind": "LinkedField",
+    "name": "users",
+    "plural": false,
+    "selections": [
+      {
+        "alias": null,
+        "args": null,
+        "concreteType": "User",
+        "kind": "LinkedField",
+        "name": "nodes",
+        "plural": true,
+        "selections": [
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "id",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "name",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "username",
+            "storageKey": null
+          }
+        ],
+        "storageKey": null
+      }
+    ],
+    "storageKey": "users(first:3)"
   }
-],
-v1 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "name",
-  "storageKey": null
-},
-v2 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "username",
-  "storageKey": null
-};
+];
 return {
   "fragment": {
     "argumentDefinitions": [],
     "kind": "Fragment",
     "metadata": null,
     "name": "AppQuery",
-    "selections": [
-      {
-        "alias": null,
-        "args": (v0/*: any*/),
-        "concreteType": "UsersConnection",
-        "kind": "LinkedField",
-        "name": "users",
-        "plural": false,
-        "selections": [
-          {
-            "alias": null,
-            "args": null,
-            "concreteType": "User",
-            "kind": "LinkedField",
-            "name": "nodes",
-            "plural": true,
-            "selections": [
-              (v1/*: any*/),
-              (v2/*: any*/)
-            ],
-            "storageKey": null
-          }
-        ],
-        "storageKey": "users(first:3)"
-      }
-    ],
+    "selections": (v0/*: any*/),
     "type": "Query",
     "abstractKey": null
   },
@@ -88,42 +94,10 @@ return {
     "argumentDefinitions": [],
     "kind": "Operation",
     "name": "AppQuery",
-    "selections": [
-      {
-        "alias": null,
-        "args": (v0/*: any*/),
-        "concreteType": "UsersConnection",
-        "kind": "LinkedField",
-        "name": "users",
-        "plural": false,
-        "selections": [
-          {
-            "alias": null,
-            "args": null,
-            "concreteType": "User",
-            "kind": "LinkedField",
-            "name": "nodes",
-            "plural": true,
-            "selections": [
-              (v1/*: any*/),
-              (v2/*: any*/),
-              {
-                "alias": null,
-                "args": null,
-                "kind": "ScalarField",
-                "name": "id",
-                "storageKey": null
-              }
-            ],
-            "storageKey": null
-          }
-        ],
-        "storageKey": "users(first:3)"
-      }
-    ]
+    "selections": (v0/*: any*/)
   },
   "params": {
-    "id": "11d5d76476978bd747adf1270de4cfa7",
+    "id": "7b3f06b09e9842a4de92015e34b82830",
     "metadata": {},
     "name": "AppQuery",
     "operationKind": "query",
@@ -132,6 +106,6 @@ return {
 };
 })();
 
-(node as any).hash = "20c4f7207c3190ff6ac3cc498e2ce8e7";
+(node as any).hash = "c08b934ae44e3e15ea7b0064590c7461";
 
 export default node;

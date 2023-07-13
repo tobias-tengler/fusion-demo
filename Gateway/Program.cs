@@ -12,11 +12,13 @@ builder.Services.AddWebSocketClient();
 
 builder.Services
     .AddFusionGatewayServer()
+    .UsePersistedQueryPipeline()
     .ConfigureFromCloud(b =>
     {
         b.ApiId = "QXBpCmdlNjAxYjU3YmQ2NWM0MzE5YjBjMTdkMzMwMmMwYmQwNg==";
         b.ApiKey = "7HJmkkfzUDGJdBEJw9gPaxKBNQQyuKJA4BTHXAai3KNBd73yxPLjOULwKE1CTfYh";
         b.Stage = "dev";
+        b.EnablePersistedQueries = true;
     })
     .CoreBuilder
     .AddInstrumentation(o => o.RenameRootActivity = true);

@@ -7,7 +7,7 @@ STAGE=dev
 
 trap "echo Something went wrong && exit 1" ERR
 
-dotnet barista client validate --client-id $CLIENT_ID --operations-file "$OPERATIONS_FILE" --stage $stage
+dotnet barista client validate --client-id $CLIENT_ID --operations-file "$OPERATIONS_FILE" --stage $STAGE
 
 dotnet barista client upload --client-id $CLIENT_ID --operations-file "$OPERATIONS_FILE" --tag $VERSION
 

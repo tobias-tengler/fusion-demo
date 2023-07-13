@@ -1,18 +1,14 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import { graphql, useLazyLoadQuery } from "react-relay";
 import { AppQuery } from "./__generated__/AppQuery.graphql";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   const data = useLazyLoadQuery<AppQuery>(
     graphql`
       query AppQuery {
         users(first: 3) {
           nodes {
+            id
             name
             username
           }
@@ -22,27 +18,26 @@ function App() {
     {}
   );
 
-  console.log(data);
+  if (!data.users?.nodes) {
+    return <div>No users present!</div>;
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-    </>
+    <div>
+      <ul>
+        {data.users.nodes.map((user) => {
+          if (!user) {
+            return null;
+          }
+
+          return (
+            <li key={user.id}>
+              {user.name} ({user.username})
+            </li>
+          );
+        })}
+      </ul>
+    </div>
   );
 }
 

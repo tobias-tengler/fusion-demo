@@ -8,7 +8,7 @@ TAG=$SUBGRAPH_NAME-$VERSION
 STAGE=dev
 API_ID=QXBpCmdlNjAxYjU3YmQ2NWM0MzE5YjBjMTdkMzMwMmMwYmQwNg==
 
-trap "echo Something went wrong && exit 1" ERR
+trap "echo Something went wrong && dotnet barista fusion-configuration publish cancel && exit 1" ERR
 
 dotnet run --project ./Accounts/Demo.Accounts.csproj -- schema export --output schema.graphql
 
